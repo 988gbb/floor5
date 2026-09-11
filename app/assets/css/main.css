@@ -1,0 +1,133 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/*
+  Floor5 design tokens.
+  ink / sage / stone = potvrđene brend boje (logo + floor5.rs + Instagram).
+  clay / warm / porcelain = predložene dopunske boje iz dokumenta "Floor5 Dizajn Sistem".
+*/
+@theme static {
+  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Work Sans', 'Segoe UI', Arial, sans-serif;
+
+  /* ink — potvrđeni charcoal (#202020) kao 900 */
+  --color-ink-50: #F6F5F4;
+  --color-ink-100: #EBE9E7;
+  --color-ink-200: #D3D0CB;
+  --color-ink-300: #B3AFA7;
+  --color-ink-400: #8C877D;
+  --color-ink-500: #6B665C;
+  --color-ink-600: #514D45;
+  --color-ink-700: #3D3A33;
+  --color-ink-800: #2C2A25;
+  --color-ink-900: #201F1B;
+  --color-ink-950: #141312;
+
+  /* sage — potvrđena brend boja (#B4BFA8) kao 400 */
+  --color-sage-50: #F4F6F1;
+  --color-sage-100: #E7EBDF;
+  --color-sage-200: #D3DCC5;
+  --color-sage-300: #C0CCAC;
+  --color-sage-400: #B4BFA8;
+  --color-sage-500: #9CAA8C;
+  --color-sage-600: #7E8A70;
+  --color-sage-700: #626C57;
+  --color-sage-800: #4A5241;
+  --color-sage-900: #363C30;
+  --color-sage-950: #23271F;
+
+  /* clay — predloženi topli akcenat (#B4674A) kao 500 */
+  --color-clay-50: #FBF1ED;
+  --color-clay-100: #F5DED4;
+  --color-clay-200: #E9BBA8;
+  --color-clay-300: #DC9880;
+  --color-clay-400: #C87F5E;
+  --color-clay-500: #B4674A;
+  --color-clay-600: #8F4E37;
+  --color-clay-700: #6E3C2A;
+  --color-clay-800: #4F2B1E;
+  --color-clay-900: #351C13;
+  --color-clay-950: #21120C;
+
+  /* warm — predložena topla neutralna skala (neutral override) */
+  --color-warm-50: #F7F6F2;
+  --color-warm-100: #EFEDE6;
+  --color-warm-200: #E1DED3;
+  --color-warm-300: #C9C5B5;
+  --color-warm-400: #A9A493;
+  --color-warm-500: #8B8676;
+  --color-warm-600: #6E6A5C;
+  --color-warm-700: #55524A;
+  --color-warm-800: #3A3833;
+  --color-warm-900: #232220;
+  --color-warm-950: #151412;
+
+  /* semantička stanja */
+  --color-success-50: #F1F5EF;
+  --color-success-100: #DCE6D7;
+  --color-success-400: #7C9770;
+  --color-success-500: #5D7A52;
+  --color-success-600: #4A6241;
+  --color-success-700: #3A4D33;
+  --color-success-900: #212B1D;
+
+  --color-warning-50: #FBF3E6;
+  --color-warning-100: #F0DDB3;
+  --color-warning-400: #CDA05F;
+  --color-warning-500: #B8863A;
+  --color-warning-600: #93692C;
+  --color-warning-700: #715023;
+  --color-warning-900: #3F2D14;
+
+  --color-error-50: #FAEBE9;
+  --color-error-100: #F0C4BE;
+  --color-error-400: #C66657;
+  --color-error-500: #B23B2E;
+  --color-error-600: #8E2E24;
+  --color-error-700: #6C231C;
+  --color-error-900: #3D1310;
+
+  --color-info-50: #EFF3F4;
+  --color-info-100: #D2DDE1;
+  --color-info-400: #7F97A0;
+  --color-info-500: #5C7480;
+  --color-info-600: #495D66;
+  --color-info-700: #38484F;
+  --color-info-900: #1F282C;
+
+  --color-porcelain: #F7F6F2;
+  --color-stone: #A8A8B0;
+
+  --shadow-warm-sm: 0 1px 2px rgb(38 36 32 / 0.08);
+  --shadow-warm-md: 0 6px 16px rgb(38 36 32 / 0.10);
+  --shadow-warm-lg: 0 16px 40px rgb(38 36 32 / 0.16);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-porcelain);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+@utility container-f5 {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility label-caps {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
