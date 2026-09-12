@@ -276,20 +276,21 @@ onMounted(async () => {
     </section>
 
     <!-- USLUGE -->
-    <section id="usluge" class="bg-porcelain pb-28">
-      <div class="flex items-center gap-4 px-8 lg:px-16 pt-4 pb-10">
+    <section id="usluge" class="bg-porcelain pb-32">
+      <div class="flex items-center gap-4 px-8 lg:px-16 pt-24 pb-14">
         <span class="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-ink-700">Usluge</span>
       </div>
       <div class="f5-stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-ink-900/12 mx-[1.2rem] md:mx-8 lg:mx-16">
-        <div v-for="s in services" :key="s.num" class="border-r border-t border-b border-ink-900/12 flex flex-row md:flex-col items-stretch bg-porcelain hover:bg-white transition-colors">
-          <div class="w-[120px] h-auto min-h-full md:w-full md:h-[220px] flex-shrink-0 overflow-hidden relative">
-            <NuxtImg :src="s.img" :alt="s.title" class="absolute inset-0 w-full h-full object-cover grayscale-[45%] brightness-[0.92] scale-105 transition-all duration-700 hover:grayscale-0 hover:brightness-100" width="400" height="220" loading="lazy" />
+        <div v-for="s in services" :key="s.num" class="group relative border-r border-t border-b border-ink-900/12 flex flex-row md:flex-col items-stretch bg-porcelain hover:bg-white transition-colors overflow-hidden">
+          <div class="w-[120px] h-auto max-md:min-h-full md:w-full md:h-[220px] flex-shrink-0 overflow-hidden relative">
+            <NuxtImg :src="s.img" :alt="s.title" class="absolute inset-0 w-full h-full object-cover grayscale-[45%] brightness-[0.92] scale-105 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-[1.14]" width="400" height="220" loading="lazy" />
           </div>
-          <div class="p-[1.3rem_1.3rem_2.2rem] md:p-8 flex flex-col flex-1 relative">
+          <div class="p-[1.3rem_1.3rem_2.2rem] md:p-[2.2rem_2.2rem_3.4rem] flex flex-col flex-1 relative">
             <span class="font-display italic text-sage-600 text-[0.85rem] md:text-base">{{ s.num }}</span>
-            <h3 class="font-display font-semibold text-[1.2rem] md:text-xl mt-[0.7rem] md:mt-5 mb-2 md:mb-3">{{ s.title }}</h3>
-            <p class="text-[0.8rem] md:text-sm leading-[1.6] md:leading-[1.8] font-light text-ink-700 opacity-90">{{ s.text }}</p>
+            <h3 class="font-display font-semibold text-[1.2rem] md:text-[1.55rem] mt-[0.7rem] md:mt-[1.6rem] mb-2 md:mb-[1.1rem]">{{ s.title }}</h3>
+            <p class="text-[0.8rem] md:text-[0.9rem] leading-[1.6] md:leading-[1.8] font-light text-ink-700 opacity-90">{{ s.text }}</p>
           </div>
+          <div class="absolute bottom-0 left-0 w-full h-[3px] bg-sage-400 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></div>
         </div>
       </div>
     </section>
