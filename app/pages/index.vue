@@ -108,11 +108,19 @@ onMounted(async () => {
       })
     })
 
-    // Brand / ref / insta card entrances
+    // Brand / ref card entrances
     gsap.utils.toArray('.f5-stagger-grid').forEach((grid: any) => {
       gsap.fromTo(grid.children, { opacity: 0, y: 40 }, {
         opacity: 1, y: 0, duration: 0.8, stagger: 0.06, ease: 'power3.out',
         scrollTrigger: { trigger: grid, start: 'top 88%' }
+      })
+    })
+
+    // Instagram grid — stagger ulazak (clip-path wipe, per-item trigger)
+    gsap.utils.toArray('.insta-item').forEach((item: any, i: number) => {
+      gsap.fromTo(item, { clipPath: 'inset(0 0 100% 0)' }, {
+        clipPath: 'inset(0 0 0% 0)', duration: 1, delay: (i % 6) * 0.08, ease: 'power4.inOut',
+        scrollTrigger: { trigger: item, start: 'top 92%' }
       })
     })
 
@@ -343,7 +351,7 @@ onMounted(async () => {
       <div class="text-center mt-20 px-6">
         <p class="fade-up opacity-0 translate-y-6 text-[0.68rem] uppercase tracking-[0.3em] font-semibold text-ink-700 mb-10">Sarađujemo sa</p>
         <div class="f5-stagger-grid grid grid-cols-2 lg:grid-cols-3 gap-px bg-ink-900/12 border border-ink-900/12 max-w-4xl mx-auto">
-          <a v-for="c in clients" :key="c.name" :href="c.href" target="_blank" rel="noopener" class="bg-white flex items-center justify-center aspect-[3/1.6] lg:aspect-[3/1.4] p-4 lg:p-[1.8rem_1rem] hover:bg-porcelain transition-colors">
+          <a v-for="c in clients" :key="c.name" :href="c.href" target="_blank" rel="noopener" class="bg-white flex items-center justify-center aspect-[3/1.6] lg:aspect-[3/1.4] p-4 lg:p-[1.8rem_1rem] hover:bg-[#EFEDE9] transition-colors">
             <NuxtImg :src="c.logo" :alt="c.name" fit="contain" background="white" class="max-w-[76%] lg:max-w-[74%] max-h-[34px] lg:max-h-11 object-contain grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all" width="140" height="44" loading="lazy" />
           </a>
         </div>
@@ -360,8 +368,8 @@ onMounted(async () => {
         <UIcon name="i-lucide-instagram" class="size-6 transition-transform group-hover:-rotate-[8deg] group-hover:scale-110" />
         <span class="border-b border-transparent group-hover:border-sage-600">@keramikafloor5</span>
       </a>
-      <div class="f5-stagger-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-ink-900/12 border-y border-ink-900/12">
-        <a v-for="(img, i) in instaPhotos" :key="i" href="https://www.instagram.com/keramikafloor5/" target="_blank" rel="noopener" class="group relative aspect-square overflow-hidden">
+      <div class="insta-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-ink-900/12 border-y border-ink-900/12">
+        <a v-for="(img, i) in instaPhotos" :key="i" href="https://www.instagram.com/keramikafloor5/" target="_blank" rel="noopener" class="insta-item group relative aspect-square overflow-hidden">
           <NuxtImg :src="img" alt="Floor5 na Instagramu" class="absolute inset-0 w-full h-full object-cover scale-105 grayscale-[25%] transition-all duration-500 group-hover:scale-110 group-hover:grayscale-0" width="400" height="400" loading="lazy" />
           <div class="absolute inset-0 bg-sage-400 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-30" />
         </a>
