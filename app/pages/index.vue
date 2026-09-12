@@ -352,7 +352,7 @@ onMounted(async () => {
         <p class="fade-up opacity-0 translate-y-6 text-[0.68rem] uppercase tracking-[0.3em] font-semibold text-ink-700 mb-10">Sarađujemo sa</p>
         <div class="f5-stagger-grid grid grid-cols-2 lg:grid-cols-3 gap-px bg-ink-900/12 border border-ink-900/12 max-w-4xl mx-auto">
           <a v-for="c in clients" :key="c.name" :href="c.href" target="_blank" rel="noopener" class="bg-white flex items-center justify-center aspect-[3/1.6] lg:aspect-[3/1.4] p-4 lg:p-[1.8rem_1rem] hover:bg-[#EFEDE9] transition-colors">
-            <NuxtImg :src="c.logo" :alt="c.name" fit="contain" background="white" class="max-w-[76%] lg:max-w-[74%] max-h-[34px] lg:max-h-11 object-contain grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all" width="140" height="44" loading="lazy" />
+            <img :src="c.logo" :alt="c.name" class="max-w-[76%] lg:max-w-[74%] max-h-[34px] lg:max-h-11 object-contain grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all" loading="lazy" />
           </a>
         </div>
       </div>
