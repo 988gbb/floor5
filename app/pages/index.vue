@@ -171,7 +171,7 @@ onMounted(async () => {
       </div>
 
       <div class="hero-content relative z-[3] px-6">
-        <p class="reveal-line overflow-hidden mb-6"><span class="inline-block translate-y-[110%] text-white/85 text-xs font-semibold uppercase tracking-[0.3em]">Showroom · Bulevar Zorana Đinđića 123g</span></p>
+        <p class="reveal-line overflow-hidden mb-6"><span class="inline-block translate-y-[110%] text-sage-400 text-xs font-semibold uppercase tracking-[0.3em]">Showroom · Bulevar Zorana Đinđića 123g</span></p>
         <h1 class="font-display text-white font-semibold leading-[1.08] mb-6" style="font-size:clamp(2.8rem, 8vw, 7rem); letter-spacing:0.015em;">
           <span class="inline-block overflow-hidden"><span class="ht-inner inline-block translate-y-[110%]">Premium <em class="font-accent-italic text-sage-400 not-italic" style="font-style:italic;">Keramika</em></span></span>
         </h1>
@@ -344,7 +344,7 @@ onMounted(async () => {
         <p class="fade-up opacity-0 translate-y-6 text-[0.68rem] uppercase tracking-[0.3em] font-semibold text-ink-700 mb-10">Sarađujemo sa</p>
         <div class="f5-stagger-grid grid grid-cols-2 lg:grid-cols-3 gap-px bg-ink-900/12 border border-ink-900/12 max-w-4xl mx-auto">
           <a v-for="c in clients" :key="c.name" :href="c.href" target="_blank" rel="noopener" class="bg-white flex items-center justify-center aspect-[3/1.6] lg:aspect-[3/1.4] p-4 lg:p-[1.8rem_1rem] hover:bg-porcelain transition-colors">
-            <NuxtImg :src="c.logo" :alt="c.name" fit="contain" class="max-w-[76%] lg:max-w-[74%] max-h-[34px] lg:max-h-11 object-contain grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all" width="140" height="44" loading="lazy" />
+            <NuxtImg :src="c.logo" :alt="c.name" fit="contain" background="white" class="max-w-[76%] lg:max-w-[74%] max-h-[34px] lg:max-h-11 object-contain grayscale contrast-125 hover:grayscale-0 hover:contrast-100 transition-all" width="140" height="44" loading="lazy" />
           </a>
         </div>
       </div>

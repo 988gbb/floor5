@@ -16,8 +16,8 @@ defineProps<{ brand: { name: string; country: string; href: string; bg: string; 
     />
     <div class="relative z-[2] h-full p-[1.1rem] lg:p-6 flex flex-col items-center justify-center lg:items-stretch lg:justify-between">
       <NuxtImg
-        :src="brand.logo" :alt="`${brand.name} logo`" fit="contain" width="160" height="48" loading="lazy"
-        class="max-w-[72%] max-h-[42px] self-center bg-white px-[1.2rem] py-[0.7rem] shadow-[0_4px_18px_rgba(53,49,47,0.18)] grayscale contrast-125 transition-all duration-300
+        :src="brand.logo" :alt="`${brand.name} logo`" fit="contain" background="white" width="160" height="48" loading="lazy"
+        class="max-w-[72%] max-h-[42px] object-contain self-center bg-white px-[1.2rem] py-[0.7rem] shadow-[0_4px_18px_rgba(53,49,47,0.18)] grayscale contrast-125 transition-all duration-300
                lg:max-w-[70%] lg:max-h-12 lg:self-start lg:px-3 lg:py-2 lg:shadow-none
                group-hover:grayscale-0 group-hover:contrast-100"
       />
