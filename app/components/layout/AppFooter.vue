@@ -1,46 +1,42 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const bigText = ref<HTMLElement | null>(null)
+const footerRoot = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  if (!import.meta.client) return
+  const { $gsap: gsap, $ScrollTrigger: ScrollTrigger } = useNuxtApp() as any
+  const ctx = gsap.context(() => {
+    gsap.from(bigText.value, {
+      yPercent: 35,
+      ease: 'none',
+      scrollTrigger: { trigger: footerRoot.value, start: 'top bottom', end: 'bottom bottom', scrub: true }
+    })
+  }, footerRoot.value!)
+  onBeforeUnmount(() => ctx.revert())
+})
 </script>
 
 <template>
-  <footer class="bg-ink-900 text-warm-300 mt-24">
-    <div class="container-f5 py-14 grid grid-cols-2 md:grid-cols-4 gap-10">
-      <div>
-        <NuxtImg src="/img/logo-floor5.png" alt="Floor5" class="h-11 w-auto mb-4 brightness-0 invert" width="500" height="230" />
-        <p class="text-sm text-warm-400 max-w-[26ch]">Premium keramika i pločice, italijanski dizajn. Salon u Beogradu.</p>
-      </div>
-      <div>
-        <div class="label-caps text-warm-500 mb-3">Katalog</div>
-        <ul class="space-y-2 text-sm">
-          <li><NuxtLink to="/katalog?namena=pod" class="hover:text-white">Podovi</NuxtLink></li>
-          <li><NuxtLink to="/katalog?namena=zid" class="hover:text-white">Zidovi</NuxtLink></li>
-          <li><NuxtLink to="/katalog?namena=kupatilo" class="hover:text-white">Kupatila</NuxtLink></li>
-          <li><NuxtLink to="/katalog?namena=fasada" class="hover:text-white">Fasade</NuxtLink></li>
-        </ul>
-      </div>
-      <div>
-        <div class="label-caps text-warm-500 mb-3">Kompanija</div>
-        <ul class="space-y-2 text-sm">
-          <li><NuxtLink to="/o-nama" class="hover:text-white">O nama</NuxtLink></li>
-          <li><NuxtLink to="/inspiracija" class="hover:text-white">Projekti</NuxtLink></li>
-          <li><NuxtLink to="/kolekcije" class="hover:text-white">Kolekcije</NuxtLink></li>
-        </ul>
-      </div>
-      <div>
-        <div class="label-caps text-warm-500 mb-3">Kontakt</div>
-        <ul class="space-y-2 text-sm">
-          <li><a href="mailto:office@floor5.rs" class="hover:text-white">office@floor5.rs</a></li>
-          <li><a href="tel:+381649067173" class="hover:text-white">+381 64 9067173</a></li>
-          <li class="text-warm-400">Bulevar Zorana Đinđića 123g, Beograd</li>
-          <li><a href="https://www.instagram.com/keramikafloor5/" target="_blank" rel="noopener" class="hover:text-white">Instagram</a></li>
-        </ul>
-      </div>
+  <footer ref="footerRoot" class="bg-ink-900 text-porcelain/80 relative overflow-hidden px-8 lg:px-16 pt-12 lg:pt-16">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 pb-12 border-b border-white/10">
+      <NuxtLink to="/"><NuxtImg src="/img/reference/logo1.png" alt="Floor5" class="h-9 w-auto" width="447" height="148" /></NuxtLink>
+      <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+        <NuxtLink to="/#o-nama" class="text-xs uppercase tracking-[0.15em] hover:text-sage-400 transition-colors">O nama</NuxtLink>
+        <NuxtLink to="/brendovi" class="text-xs uppercase tracking-[0.15em] hover:text-sage-400 transition-colors">Brendovi</NuxtLink>
+        <NuxtLink to="/#usluge" class="text-xs uppercase tracking-[0.15em] hover:text-sage-400 transition-colors">Usluge</NuxtLink>
+        <NuxtLink to="/#inspiracije" class="text-xs uppercase tracking-[0.15em] hover:text-sage-400 transition-colors">Inspiracije</NuxtLink>
+        <NuxtLink to="/#reference" class="text-xs uppercase tracking-[0.15em] hover:text-sage-400 transition-colors">Reference</NuxtLink>
+      </nav>
     </div>
-    <div class="border-t border-warm-800">
-      <div class="container-f5 py-4 text-xs text-warm-500 flex justify-between">
-        <span>© {{ year }} Floor5</span>
-        <span>Sva prava zadržana</span>
-      </div>
+
+    <div class="flex flex-col md:flex-row items-center md:justify-between gap-2 py-6 text-xs text-porcelain/50 text-center md:text-left">
+      <span>© {{ year }} Floor5. Sva prava zadržana.</span>
+      <span>Opremanje i dizajn enterijera i eksterijera</span>
+    </div>
+
+    <div ref="bigText" class="select-none pointer-events-none font-display font-semibold leading-none text-white/[0.06] text-center pb-2" style="font-size:clamp(4rem, 16vw, 13rem);">
+      FLOOR5
     </div>
   </footer>
 </template>

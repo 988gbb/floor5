@@ -2,33 +2,38 @@
 @import "@nuxt/ui";
 
 /*
-  Floor5 design tokens.
-  ink / sage / stone = potvrđene brend boje (logo + floor5.rs + Instagram).
-  clay / warm / porcelain = predložene dopunske boje iz dokumenta "Floor5 Dizajn Sistem".
+  Floor5 design tokens — usklađeno sa zvaničnim sajtom (Aviobyte build, floor5.rs vlasništvo).
+  Njihov CSS potvrđuje --accent:#B3BFA9 i --bg:#F6F5F2. Bitno: iako njihov CSS DEFINIŠE
+  --serif (Playfair Display) i --hero-font (Marcellus) kao promenljive, u praksi ih NIGDE
+  ne koriste — svi naslovi (h1/h2/h3, hero-title, section-ovi) koriste isključivo
+  var(--sans) = Nunito Sans. Jedini serif koji se stvarno vidi je Cormorant Garamond,
+  i to samo na kurzivnim akcentnim rečima (<em>). Pratimo to tačno, ne njihove
+  neiskorišćene CSS promenljive.
 */
 @theme static {
-  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  --font-sans: 'Work Sans', 'Segoe UI', Arial, sans-serif;
+  --font-display: 'Nunito Sans', 'Segoe UI', Arial, sans-serif;
+  --font-sans: 'Nunito Sans', 'Segoe UI', Arial, sans-serif;
+  --font-accent-italic: 'Cormorant Garamond', serif;
 
-  /* ink — potvrđeni charcoal (#202020) kao 900 */
-  --color-ink-50: #F6F5F4;
-  --color-ink-100: #EBE9E7;
-  --color-ink-200: #D3D0CB;
-  --color-ink-300: #B3AFA7;
-  --color-ink-400: #8C877D;
-  --color-ink-500: #6B665C;
-  --color-ink-600: #514D45;
-  --color-ink-700: #3D3A33;
-  --color-ink-800: #2C2A25;
-  --color-ink-900: #201F1B;
-  --color-ink-950: #141312;
+  /* ink — "dark"/"darker" sa zvaničnog sajta (#474342 / #35312F) kao 700/900 */
+  --color-ink-50: #F6F5F2;
+  --color-ink-100: #EDEAE5;
+  --color-ink-200: #DDD8D1;
+  --color-ink-300: #C4BDB3;
+  --color-ink-400: #A69C90;
+  --color-ink-500: #857A6E;
+  --color-ink-600: #665C53;
+  --color-ink-700: #474342;
+  --color-ink-800: #3D3937;
+  --color-ink-900: #35312F;
+  --color-ink-950: #221F1E;
 
-  /* sage — potvrđena brend boja (#B4BFA8) kao 400 */
+  /* sage — potvrđena brend boja, precizno #B3BFA9 sa zvaničnog sajta */
   --color-sage-50: #F4F6F1;
   --color-sage-100: #E7EBDF;
   --color-sage-200: #D3DCC5;
   --color-sage-300: #C0CCAC;
-  --color-sage-400: #B4BFA8;
+  --color-sage-400: #B3BFA9;
   --color-sage-500: #9CAA8C;
   --color-sage-600: #7E8A70;
   --color-sage-700: #626C57;
@@ -95,7 +100,7 @@
   --color-info-700: #38484F;
   --color-info-900: #1F282C;
 
-  --color-porcelain: #F7F6F2;
+  --color-porcelain: #F6F5F2;
   --color-stone: #A8A8B0;
 
   --shadow-warm-sm: 0 1px 2px rgb(38 36 32 / 0.08);
@@ -111,8 +116,14 @@
   }
   h1, h2, h3, h4, h5, .font-display {
     font-family: var(--font-display);
+    font-weight: 600;
     text-wrap: balance;
   }
+}
+
+@utility font-accent-italic {
+  font-family: var(--font-accent-italic);
+  font-style: italic;
 }
 
 @utility container-f5 {

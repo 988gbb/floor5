@@ -5,6 +5,5 @@
       <slot />
     </main>
     <AppFooter />
-    <InquiryDrawer />
   </div>
 </template>
